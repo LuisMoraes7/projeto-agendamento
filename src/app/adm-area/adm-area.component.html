@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
+<form id="form">
+    <h2>Adicionar horário para sua agenda</h2>
+    <fieldset>
+        <p>Selecione seu horário</p>
+        <input type="datetime-local" [formControl]="horarioSelecionado">
+        <button (click)="addConsulta()">Adicionar horário</button>
+    </fieldset>
+    <br>
+    <br>
+</form>
+<div id="admin">
+    <h1>Conferir seus horários</h1>
+    <button (click)="visibility()">Ver todos os meus horários</button>
+    <div *ngIf="seeAll" >
+        <div *ngFor="let consulta of consultas; let i = index" id="datas">
+            <p>ID:{{consulta.id}} - {{formatarData(consulta.date)}} - DISPONIVEL:  </p>
+            <p *ngIf="consulta.available; else naoDisponivel">Sim</p>
+            <ng-template #naoDisponivel>
+                Não
+            </ng-template>
+            <button id="deleteButton" (click)="excluir(consulta.id)">
+                <span class="material-symbols-outlined">
+                    delete
+                    </span>
+            </button>
+            <button (click)="att(consulta.id)">Mudar disponibilidade</button>
+        </div>
+    </div>
+</div>

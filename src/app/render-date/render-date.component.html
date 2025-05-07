@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let consulta of consultasEspecificas; let i = index">
+    <p *ngIf="consulta.available; else naoDisponivel">
+      <input type="radio" name="option" [value]="consulta.id" [formControl]="horarioSelecionado" />
+    </p>
+    <ng-template #naoDisponivel>
+      <input type="radio" name="option" [value]="i" disabled />
+    </ng-template>
+    <p>{{ formataData(consulta.date) }}</p> 
+  </li>
+</ul>
+<button (click)="agendar()">Agendar!</button>
