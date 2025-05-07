@@ -41,5 +41,18 @@ CREATE TABLE consulta(
 	available BOOLEAN
 );
 
+LEMBRE-SE QUE O USUÁRIO DO BANCO DE DADOS DEVE SEGUIR ESSE PADRÃO:
+
+
+
+spring.datasource.username=root
+
+
+
+
+spring.datasource.password=
+
+
+
 
 > Pronto! Banco de dados criado. Ao rodar o Backend, apenas rodando o arquivo BackendConsultasApplication.java, o banco de dados já estará integrado e a API funcionando.
